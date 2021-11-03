@@ -3,10 +3,10 @@ import Alligator from '../models/Alligator';
 import Fox from '../models/Fox';
 import Leopard from '../models/Leopard';
 import Lion from '../models/Lion';
-import createAlligatorDTO from '../interfaces/dto/createAlligatorDTO';
-import createFoxDTO from '../interfaces/dto/createFoxDTO';
-import createLeopardDTO from '../interfaces/dto/createLeopardDTO';
-import createLionDTO from '../interfaces/dto/createLionDTO';
+import CreateAlligatorDTO from '../interfaces/dto/CreateAlligatorDTO';
+import CreateFoxDTO from '../interfaces/dto/CreateFoxDTO';
+import CreateLeopardDTO from '../interfaces/dto/CreateLeopardDTO';
+import CreateLionDTO from '../interfaces/dto/CreateLionDTO';
 import IQuantityForSpecie from '../interfaces/types/IQuantityForSpecie';
 
 class AnimalsRepository {
@@ -21,7 +21,7 @@ class AnimalsRepository {
   }
 
   public findByName(name: string): boolean {
-    for (let i: number = 0; i < this.animals.length; i++) {
+    for (let i = 0; i < this.animals.length; i++) {
       if (this.animals[i].name === name) {
         return true;
       }
@@ -35,28 +35,26 @@ class AnimalsRepository {
       (acomulator: IQuantityForSpecie, animal: Animal) => {
         switch (animal.especie) {
           case 'Alligator':
-            {
-              acomulator.alligator++;
-              acomulator.total++;
-            }
+            acomulator.alligator++;
+            acomulator.total++;
+
             break;
           case 'Fox':
-            {
-              acomulator.fox++;
-              acomulator.total++;
-            }
+            acomulator.fox++;
+            acomulator.total++;
+
             break;
           case 'Leopard':
-            {
-              acomulator.leopard++;
-              acomulator.total++;
-            }
+            acomulator.leopard++;
+            acomulator.total++;
+
             break;
           case 'Lion':
-            {
-              acomulator.lions++;
-              acomulator.total++;
-            }
+            acomulator.lions++;
+            acomulator.total++;
+
+            break;
+          default:
             break;
         }
 
@@ -80,15 +78,15 @@ class AnimalsRepository {
     sexo,
     age,
     weight,
-    teeth_quantity,
-  }: createAlligatorDTO): Alligator {
+    teethQuantity,
+  }: CreateAlligatorDTO): Alligator {
     const animal: Alligator = new Alligator({
       name,
       especie,
       sexo,
       age,
       weight,
-      teeth_quantity,
+      teethQuantity,
     });
 
     this.animals.push(animal);
@@ -103,7 +101,7 @@ class AnimalsRepository {
     age,
     weight,
     coat,
-  }: createFoxDTO): Fox {
+  }: CreateFoxDTO): Fox {
     const animal: Fox = new Fox({
       name,
       especie,
@@ -124,15 +122,15 @@ class AnimalsRepository {
     sexo,
     age,
     weight,
-    max_velocity,
-  }: createLeopardDTO): Leopard {
+    maxVelocity,
+  }: CreateLeopardDTO): Leopard {
     const animal: Leopard = new Leopard({
       name,
       especie,
       sexo,
       age,
       weight,
-      max_velocity,
+      maxVelocity,
     });
 
     this.animals.push(animal);
@@ -147,7 +145,7 @@ class AnimalsRepository {
     age,
     weight,
     mane,
-  }: createLionDTO): Lion {
+  }: CreateLionDTO): Lion {
     const animal: Lion = new Lion({
       name,
       especie,

@@ -27,10 +27,10 @@ animals.get('/', (request: Request, response: Response) => {
       animalsRepository,
     );
 
-    const animals: Array<Animal> = listAnimals.execute();
+    const animalsList: Array<Animal> = listAnimals.execute();
     const quantity: IQuantityForSpecie = quantityAnimals.execute();
 
-    response.json({ animals, quantity });
+    return response.json({ animalsList, quantity });
   } catch (err) {
     return response.status(400).json({ error: (err as Error).message });
   }
@@ -38,7 +38,7 @@ animals.get('/', (request: Request, response: Response) => {
 
 animals.post('/alligator', (request: Request, response: Response) => {
   try {
-    const { name, especie, sexo, age, weight, teeth_quantity } = request.body;
+    const { name, especie, sexo, age, weight, teethQuantity } = request.body;
 
     const createAlligator: CreateAlligatorService = new CreateAlligatorService(
       animalsRepository,
@@ -50,7 +50,7 @@ animals.post('/alligator', (request: Request, response: Response) => {
       sexo,
       age,
       weight,
-      teeth_quantity,
+      teethQuantity,
     });
 
     return response.json(alligator);
@@ -82,7 +82,7 @@ animals.post('/fox', (request: Request, response: Response) => {
 
 animals.post('/leopard', (request: Request, response: Response) => {
   try {
-    const { name, especie, sexo, age, weight, max_velocity } = request.body;
+    const { name, especie, sexo, age, weight, maxVelocity } = request.body;
 
     const createLeopard: CreateLeopardService = new CreateLeopardService(
       animalsRepository,
@@ -94,7 +94,7 @@ animals.post('/leopard', (request: Request, response: Response) => {
       sexo,
       age,
       weight,
-      max_velocity,
+      maxVelocity,
     });
 
     return response.json(leopard);

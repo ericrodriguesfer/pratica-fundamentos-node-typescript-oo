@@ -1,4 +1,4 @@
-import createAlligatorDTO from '../interfaces/dto/createAlligatorDTO';
+import CreateAlligatorDTO from '../interfaces/dto/CreateAlligatorDTO';
 import Alligator from '../models/Alligator';
 import AnimalsRepository from '../repositories/AnimalsRepository';
 
@@ -15,8 +15,8 @@ class CreateAlligatorService {
     sexo,
     age,
     weight,
-    teeth_quantity,
-  }: createAlligatorDTO): Alligator {
+    teethQuantity,
+  }: CreateAlligatorDTO): Alligator {
     if (!['Alligator'].includes(especie)) {
       throw Error('This especie animal repassed not combine with alligator');
     }
@@ -37,7 +37,7 @@ class CreateAlligatorService {
       sexo,
       age,
       weight,
-      teeth_quantity,
+      teethQuantity,
     });
 
     return alligator;

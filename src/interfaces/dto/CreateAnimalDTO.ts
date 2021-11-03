@@ -1,11 +1,9 @@
 import ISexo from '../types/ISexo';
 
-interface createAnimalDTO {
+export default interface CreateAnimalDTO {
   name: string;
   especie: 'Lion' | 'Alligator' | 'Leopard' | 'Fox';
   sexo: ISexo;
   age: number;
   weight: number;
 }
-
-export default createAnimalDTO;

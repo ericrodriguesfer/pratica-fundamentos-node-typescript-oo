@@ -1,4 +1,4 @@
-import createFoxDTO from '../interfaces/dto/createFoxDTO';
+import CreateFoxDTO from '../interfaces/dto/CreateFoxDTO';
 import Fox from '../models/Fox';
 import AnimalsRepository from '../repositories/AnimalsRepository';
 
@@ -16,7 +16,7 @@ class CreateFoxService {
     age,
     weight,
     coat,
-  }: createFoxDTO): Fox {
+  }: CreateFoxDTO): Fox {
     if (!['Fox'].includes(especie)) {
       throw Error('This especie animal repassed not combine with fox');
     }

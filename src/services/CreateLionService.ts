@@ -1,4 +1,4 @@
-import createLionDTO from '../interfaces/dto/createLionDTO';
+import CreateLionDTO from '../interfaces/dto/CreateLionDTO';
 import Lion from '../models/Lion';
 import AnimalsRepository from '../repositories/AnimalsRepository';
 
@@ -16,7 +16,7 @@ class CreateLionService {
     age,
     weight,
     mane,
-  }: createLionDTO): Lion {
+  }: CreateLionDTO): Lion {
     if (!['Lion'].includes(especie)) {
       throw Error('This especie animal repassed not combine with lion');
     }

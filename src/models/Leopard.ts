@@ -1,11 +1,11 @@
 import Animal from '../abstract/Animal';
 
 class Leopard extends Animal {
-  max_velocity: number;
+  maxVelocity: number;
 
-  constructor({ name, especie, sexo, age, weight, max_velocity }: Leopard) {
+  constructor({ name, especie, sexo, age, weight, maxVelocity }: Leopard) {
     super({ name, especie, sexo, age, weight });
-    this.max_velocity = max_velocity;
+    this.maxVelocity = maxVelocity;
   }
 }
 

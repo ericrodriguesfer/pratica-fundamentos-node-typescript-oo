@@ -1,11 +1,11 @@
 import Animal from '../abstract/Animal';
 
 class Alligator extends Animal {
-  teeth_quantity: number;
+  teethQuantity: number;
 
-  constructor({ name, especie, sexo, age, weight, teeth_quantity }: Alligator) {
+  constructor({ name, especie, sexo, age, weight, teethQuantity }: Alligator) {
     super({ name, especie, sexo, age, weight });
-    this.teeth_quantity = teeth_quantity;
+    this.teethQuantity = teethQuantity;
   }
 }
 

@@ -1,4 +1,4 @@
-import createLeopardDTO from '../interfaces/dto/createLeopardDTO';
+import CreateLeopardDTO from '../interfaces/dto/CreateLeopardDTO';
 import Leopard from '../models/Leopard';
 import AnimalsRepository from '../repositories/AnimalsRepository';
 
@@ -15,8 +15,8 @@ class CreateLeopardService {
     sexo,
     age,
     weight,
-    max_velocity,
-  }: createLeopardDTO): Leopard {
+    maxVelocity,
+  }: CreateLeopardDTO): Leopard {
     if (!['Leopard'].includes(especie)) {
       throw Error('This especie animal repassed not combine with leopard');
     }
@@ -37,7 +37,7 @@ class CreateLeopardService {
       sexo,
       age,
       weight,
-      max_velocity,
+      maxVelocity,
     });
 
     return leopard;

@@ -1,5 +1,3 @@
-interface ISexo {
+export default interface Sexo {
   sexo: 'Male' | 'Female';
 }
-
-export default ISexo;
