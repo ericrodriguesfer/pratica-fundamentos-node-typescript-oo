@@ -12,6 +12,7 @@ import UpdateAlligatorDTO from '../interfaces/dto/UpdateAlligatorDTO';
 import UpdateFoxDTO from '../interfaces/dto/UpdateFoxDTO';
 import UpdateLeopardDTO from '../interfaces/dto/UpdateLeopardDTO';
 import UpdateLionDTO from '../interfaces/dto/UpdateLionDTO';
+import DeleteAnimalIndexDTO from '../interfaces/dto/DeleteAnimalIndexDTO';
 
 class AnimalsRepository {
   private animals: Array<Animal>;
@@ -236,6 +237,16 @@ class AnimalsRepository {
     } as Lion;
 
     return this.animals[index] as Lion;
+  }
+
+  public delelte({ index }: DeleteAnimalIndexDTO): boolean {
+    try {
+      this.animals.splice(index, 1);
+
+      return true;
+    } catch (err) {
+      return false;
+    }
   }
 }
 

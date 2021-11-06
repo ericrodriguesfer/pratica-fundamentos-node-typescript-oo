@@ -1,4 +1,4 @@
-import { Router, Request, Response } from 'express';
+import { Router, Request, Response, request } from 'express';
 import Animal from '../models/abstract/Animal';
 import IQuantityForSpecie from '../interfaces/types/IQuantityForSpecie';
 import Alligator from '../models/Alligator';
@@ -17,6 +17,7 @@ import UpdateAlligatorService from '../services/UpdateAlligatorService';
 import UpdateFoxService from '../services/UpdateFoxService';
 import UpdateLeopardService from '../services/UpdateLeopardService';
 import UpdateLionService from '../services/UpdateLionService';
+import DeleteAnimalService from '../services/DeleteAnimalService';
 
 const animals: Router = Router();
 const animalsRepository: AnimalsRepository = new AnimalsRepository();
@@ -227,6 +228,22 @@ animals.put('/lion/:name', (request: Request, response: Response) => {
     );
 
     return response.json(lionUpdated);
+  } catch (err) {
+    return response.status(400).json({ error: (err as Error).message });
+  }
+});
+
+animals.delete('/:name', (request: Request, response: Response) => {
+  try {
+    const name: string = request.params.name;
+
+    const deleteAnimal: DeleteAnimalService = new DeleteAnimalService(
+      animalsRepository,
+    );
+
+    const result: boolean = deleteAnimal.execute({ name });
+
+    return response.json(result);
   } catch (err) {
     return response.status(400).json({ error: (err as Error).message });
   }
