@@ -1,4 +1,4 @@
-import Animal from '../abstract/Animal';
+import Animal from '../models/abstract/Animal';
 import Alligator from '../models/Alligator';
 import Fox from '../models/Fox';
 import Leopard from '../models/Leopard';
@@ -8,6 +8,10 @@ import CreateFoxDTO from '../interfaces/dto/CreateFoxDTO';
 import CreateLeopardDTO from '../interfaces/dto/CreateLeopardDTO';
 import CreateLionDTO from '../interfaces/dto/CreateLionDTO';
 import IQuantityForSpecie from '../interfaces/types/IQuantityForSpecie';
+import UpdateAlligatorDTO from '../interfaces/dto/UpdateAlligatorDTO';
+import UpdateFoxDTO from '../interfaces/dto/UpdateFoxDTO';
+import UpdateLeopardDTO from '../interfaces/dto/UpdateLeopardDTO';
+import UpdateLionDTO from '../interfaces/dto/UpdateLionDTO';
 
 class AnimalsRepository {
   private animals: Array<Animal>;
@@ -28,6 +32,16 @@ class AnimalsRepository {
     }
 
     return false;
+  }
+
+  public getIndexAnimalByName(name: string): number {
+    for (let i = 0; i < this.animals.length; i++) {
+      if (this.animals[i].name === name) {
+        return i;
+      }
+    }
+
+    return -1;
   }
 
   public getQuantity(): IQuantityForSpecie {
@@ -158,6 +172,70 @@ class AnimalsRepository {
     this.animals.push(animal);
 
     return animal;
+  }
+
+  public updateAlligator(
+    { name, sexo, age, weight, teethQuantity }: UpdateAlligatorDTO,
+    index: number,
+  ): Alligator {
+    this.animals[index] = {
+      name: name,
+      especie: this.animals[index].especie,
+      sexo: sexo,
+      age: age,
+      weight: weight,
+      teethQuantity: teethQuantity,
+    } as Alligator;
+
+    return this.animals[index] as Alligator;
+  }
+
+  public updateFox(
+    { name, sexo, age, weight, coat }: UpdateFoxDTO,
+    index: number,
+  ): Fox {
+    this.animals[index] = {
+      name: name,
+      especie: this.animals[index].especie,
+      sexo: sexo,
+      age: age,
+      weight: weight,
+      coat: coat,
+    } as Fox;
+
+    return this.animals[index] as Fox;
+  }
+
+  public updateLeopard(
+    { name, sexo, age, weight, maxVelocity }: UpdateLeopardDTO,
+    index: number,
+  ): Leopard {
+    this.animals[index] = {
+      name: name,
+      especie: this.animals[index].especie,
+      sexo: sexo,
+      age: age,
+      weight: weight,
+      maxVelocity: maxVelocity,
+    } as Leopard;
+
+    return this.animals[index] as Leopard;
+  }
+
+  public updateLion(
+    { name, sexo, age, weight, mane }: UpdateLionDTO,
+    index: number,
+  ): Lion {
+    this.animals[index] = {
+      name: name,
+      especie: this.animals[index].especie,
+      sexo: sexo,
+      age: age,
+      weight: weight,
+      mane,
+    } as Lion;
+
+    return this.animals[index] as Lion;
   }
 }
 

@@ -1,4 +1,4 @@
-import ISexo from '../interfaces/types/ISexo';
+import ISexo from '../../interfaces/types/ISexo';
 
 abstract class Animal {
   name: string;

@@ -1,4 +1,4 @@
-import Animal from '../abstract/Animal';
+import Animal from './abstract/Animal';
 
 class Fox extends Animal {
   coat: 'Blue' | 'Green' | 'Red' | 'Brown';

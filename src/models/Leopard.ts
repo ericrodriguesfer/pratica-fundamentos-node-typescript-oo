@@ -1,4 +1,4 @@
-import Animal from '../abstract/Animal';
+import Animal from './abstract/Animal';
 
 class Leopard extends Animal {
   maxVelocity: number;

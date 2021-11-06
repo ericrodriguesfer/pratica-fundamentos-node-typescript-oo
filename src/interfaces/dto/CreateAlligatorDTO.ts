@@ -1,5 +1,5 @@
-import createAnimalDTO from './CreateAnimalDTO';
+import CreateAnimalDTO from './CreateAnimalDTO';
 
-export default interface CreateAlligatorDTO extends createAnimalDTO {
+export default interface CreateAlligatorDTO extends CreateAnimalDTO {
   teethQuantity: number;
 }

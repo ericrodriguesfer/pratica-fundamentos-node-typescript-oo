@@ -1,4 +1,4 @@
-import Animal from '../abstract/Animal';
+import Animal from './abstract/Animal';
 
 class Alligator extends Animal {
   teethQuantity: number;

@@ -1,4 +1,4 @@
-import Animal from '../abstract/Animal';
+import Animal from './abstract/Animal';
 
 class Lion extends Animal {
   mane: boolean;
