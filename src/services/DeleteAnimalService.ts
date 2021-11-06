@@ -25,6 +25,12 @@ class DeleteAnimalService {
       nameLower,
     );
 
+    if (indexAnimalDelete === -1 || indexAnimalDelete < 0) {
+      throw Error(
+        'Not permited delete, because not found animal with this name',
+      );
+    }
+
     const result: boolean = this.animalsRepository.delelte({
       index: indexAnimalDelete,
     });
