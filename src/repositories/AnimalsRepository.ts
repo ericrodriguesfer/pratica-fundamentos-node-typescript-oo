@@ -26,21 +26,21 @@ class AnimalsRepository {
   }
 
   public findByName(name: string): boolean {
-    for (let i = 0; i < this.animals.length; i++) {
-      if (this.animals[i].name === name) {
+    this.animals.forEach(animal => {
+      if (animal.name === name) {
         return true;
       }
-    }
+    });
 
     return false;
   }
 
   public getIndexAnimalByName(name: string): number {
-    for (let i = 0; i < this.animals.length; i++) {
-      if (this.animals[i].name === name) {
-        return i;
+    this.animals.forEach((animal, index) => {
+      if (animal.name === name) {
+        return index;
       }
-    }
+    });
 
     return -1;
   }
