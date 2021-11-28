@@ -26,23 +26,27 @@ class AnimalsRepository {
   }
 
   public findByName(name: string): boolean {
+    let find: boolean = false;
+
     this.animals.forEach(animal => {
       if (animal.name === name) {
-        return true;
+        find = true;
       }
     });
 
-    return false;
+    return find;
   }
 
   public getIndexAnimalByName(name: string): number {
+    let indexAnimal: number = -1;
+
     this.animals.forEach((animal, index) => {
       if (animal.name === name) {
-        return index;
+        indexAnimal = index;
       }
     });
 
-    return -1;
+    return indexAnimal;
   }
 
   public getQuantity(): IQuantityForSpecie {
