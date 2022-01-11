@@ -1,4 +1,4 @@
-import Animal from '../abstract/Animal';
+import Animal from '../models/abstract/Animal';
 import AnimalsRepository from '../repositories/AnimalsRepository';
 
 class ListAllAnimalsService {
